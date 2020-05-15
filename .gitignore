@@ -1,0 +1,47 @@
+# Folder/Mac-related
+# ===
+
+/RUNNING_PID
+/logs/
+*.tgz
+.ensime*
+.DS_Store
+/metastore_db
+
+# Scala-related
+# ===
+
+/project/*-shim.sbt
+/project/project/
+/project/target/
+/target/
+*/target/*
+target/*
+/common-etl/project/project/
+/common-etl/project/target/
+
+# Directories for Integration Testing
+# ===
+
+/metapod-test
+
+# Unit Testing Byproducts
+# ===
+
+derby.log
+*.iml
+__pycache__/
+.bloop
+.metals
+
+# IDE-related files
+# ===
+
+# Vim swap files
+*.swp
+
+# IntelliJ IDEA files
+.idea
+
+# VS Code/Metals files
+/project/metals.sbt
