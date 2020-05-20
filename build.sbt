@@ -1,4 +1,4 @@
-name := "streams"
+name := "simple-streaming"
 organization := "nubank"
 
 version := "0.1.0"

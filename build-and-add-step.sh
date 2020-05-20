@@ -10,10 +10,12 @@ function join_by {
 # Builds a fat jar
 sbt assembly
 
+JAR_FILE=simple-streaming-assembly-0.1.0.jar
+
 # Copies fat jar to S3
 aws s3 cp --profile dev \
-  target/scala-2.11/streams-assembly-0.1.0.jar \
-  s3://spark-emr-test/jars/streams-assembly-0.1.0.jar
+  target/scala-2.11/${JAR_FILE} \
+  s3://spark-emr-test/jars/${JAR_FILE}
 
 # Arguments for the spark
 ARGS_ARRAY=(
@@ -26,8 +28,8 @@ ARGS_ARRAY=(
 #  --conf spark.driver.extraJavaOptions=-Dlog4j.configuration=s3://spark-emr-test/conf/log4j.properties
   --conf spark.driver.extraJavaOptions=-Dlog4j.debug=true
   --packages org.apache.spark:spark-sql-kafka-0-10_2.11:2.4.4
-  --class runner.StreamsSparkProcessor
-  s3://spark-emr-test/jars/streams-assembly-0.1.0.jar  # These are arguments for the application
+  --class runner.SimpleStreaming
+  s3://spark-emr-test/jars/${JAR_FILE}  # These are arguments for the application
   ip-10-100-128-86.ec2.internal:9092
 )
 
@@ -38,5 +40,5 @@ aws emr add-steps \
     --profile dev \
     --region us-east-1 \
     --cluster-id j-3LZ0N0J8Y0KX6 \
-    --steps Type=SPARK,Name=SparkStructuredStreaming,Args=[$ARGS],\
+    --steps Type=SPARK,Name=SimpleStreaming,Args=[$ARGS],\
 ActionOnFailure=CONTINUE
