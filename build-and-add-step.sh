@@ -39,6 +39,6 @@ ARGS=`join_by ${ARGS_ARRAY[@]}`
 aws emr add-steps \
     --profile dev \
     --region us-east-1 \
-    --cluster-id j-3LZ0N0J8Y0KX6 \
+    --cluster-id j-1GWDBJCW060Z3 \
     --steps Type=SPARK,Name=SimpleStreaming,Args=[$ARGS],\
 ActionOnFailure=CONTINUE

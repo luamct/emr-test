@@ -10,7 +10,7 @@ object SimpleStreaming {
     .config("spark.sql.streaming.checkpointLocation", "/var/tmp/spark-checkpoints")
     .getOrCreate()
 
-  private lazy val logger = Logger.getRootLogger
+  private lazy val logger = Logger.getLogger("streams")
 
   def main(args: Array[String]): Unit = {
     println("I can find this log :)")
