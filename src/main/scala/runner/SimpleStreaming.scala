@@ -13,8 +13,8 @@ object SimpleStreaming {
   private lazy val logger = Logger.getLogger("streams")
 
   def main(args: Array[String]): Unit = {
-    println("I can find this log :)")
-    logger.info("But not this one :(")
+
+    logger.info("I can see this log now :)")
 
     spark.readStream
       .format("kafka")
