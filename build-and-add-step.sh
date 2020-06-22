@@ -11,9 +11,9 @@ function join_by {
 }
 
 # Parameters
-CLUSTER_ID=j-1GWDBJCW060Z3
+CLUSTER_ID=j-1VWCTHOA53W6X
+MASTER_HOST=ip-10-100-132-156.ec2.internal
 JAR_FILE=simple-streaming-assembly-0.1.0.jar
-MASTER_HOST=ip-10-100-129-186.ec2.internal
 
 _SPARK_ARGS_=(
   --deploy-mode cluster
